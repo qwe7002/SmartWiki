@@ -4,14 +4,14 @@ spl_autoload_register(function($class){
   require preg_replace('{\\\\|_(?!.*\\\\)}', DIRECTORY_SEPARATOR, ltrim($class, '\\')).'.php';
 });
 
-use Michelf\Markdown;
+use \Michelf\MarkdownExtra;
 if(isset($_GET['page'])){
 $pages=$_GET['page'];
 }else{
   $pages="index";
 }
      $text = file_get_contents("file/".$pages.".md");
-     $html = Markdown::defaultTransform($text);
+     $html = MarkdownExtra::defaultTransform($text);
 ?>
 <!DOCTYPE html>
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">

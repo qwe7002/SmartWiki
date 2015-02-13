@@ -779,12 +779,12 @@ class Markdown implements MarkdownInterface {
 			return $matches[0];
 		
 		$level = $matches[2]{0} == '=' ? 1 : 2;
-		$block = "<h$level>".$this->runSpanGamut($matches[1])."</h$level>";
+		$block = "<h$level>".$this->runSpanGamut($matches[1])."</h$level><hr>";
 		return "\n" . $this->hashBlock($block) . "\n\n";
 	}
 	protected function _doHeaders_callback_atx($matches) {
 		$level = strlen($matches[1]);
-		$block = "<h$level>".$this->runSpanGamut($matches[2])."</h$level>";
+		$block = "<h$level>".$this->runSpanGamut($matches[2])."</h$level><hr>";
 		return "\n" . $this->hashBlock($block) . "\n\n";
 	}
 
@@ -2531,13 +2531,13 @@ abstract class _MarkdownExtra_TmpImpl extends \Michelf\Markdown {
 			return $matches[0];
 		$level = $matches[3]{0} == '=' ? 1 : 2;
 		$attr  = $this->doExtraAttributes("h$level", $dummy =& $matches[2]);
-		$block = "<h$level$attr>".$this->runSpanGamut($matches[1])."</h$level>";
+		$block = "<h$level$attr>".$this->runSpanGamut($matches[1])."</h$level><hr>";
 		return "\n" . $this->hashBlock($block) . "\n\n";
 	}
 	protected function _doHeaders_callback_atx($matches) {
 		$level = strlen($matches[1]);
 		$attr  = $this->doExtraAttributes("h$level", $dummy =& $matches[3]);
-		$block = "<h$level$attr>".$this->runSpanGamut($matches[2])."</h$level>";
+		$block = "<h$level$attr>".$this->runSpanGamut($matches[2])."</h$level><hr>";
 		return "\n" . $this->hashBlock($block) . "\n\n";
 	}
 
@@ -2652,7 +2652,7 @@ abstract class _MarkdownExtra_TmpImpl extends \Michelf\Markdown {
 		$attr       = array_pad($attr, $col_count, '');
 		
 		# Write column headers.
-		$text = "<table>\n";
+		$text = "<table class=\"table table-hover\">\n";
 		$text .= "<thead>\n";
 		$text .= "<tr>\n";
 		foreach ($headers as $n => $header)
