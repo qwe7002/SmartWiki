@@ -10,8 +10,12 @@ $pages=$_GET['page'];
 }else{
   $pages="index";
 }
-     $text = file_get_contents("file/".$pages.".md");
-     $html = MarkdownExtra::defaultTransform($text);
+if(!file_exists("file/".$pages.".md")){
+die("404 Not Found");
+}else{
+ $text = file_get_contents("file/".$pages.".md");
+ $html = MarkdownExtra::defaultTransform($text);
+     }
 ?>
 <!DOCTYPE html>
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
