@@ -86,10 +86,25 @@ $text="";
             <?PHP
             foreach ($filesetting as $key => $val)
             {
+
               if($key==$pages){
               echo '<li class= "active"><a href="?page='.$key.'">'.$val.'</a></li>';
               }else{
+                if(is_array($val)){
+              echo '<li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">'.$val["标题"].' <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">';
+              foreach ($val as $id => $return)
+                {
+                  if($id!="标题"){
+                echo '<li><a href="?page='.$key."_".$id.'">'.$return.'</a></li>';
+            
+                                }
+                }
+                echo '</ul></li>';
+                }else{
               echo '<li><a href="?page='.$key.'">'.$val.'</a></li>';
+                      }
              }
             }
             ?>
