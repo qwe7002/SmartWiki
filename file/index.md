@@ -21,10 +21,12 @@ smartwiki 一个简单，文档化管理的wiki 系统
 * 您可以通过修改 conf.php 文件的<code>$Gsetting</code>来指定该网站的名称以及页脚信息
 
 #感谢
-感谢优秀的开源 markdown 库 php-markdown以及优秀的前端框架 Bootstrap
+感谢优秀的开源 markdown 库 php-markdown以及优秀的前端框架 Bootstrap和 amazeui
 
 * [php-markdown](https://github.com/michelf/php-markdown)
 * [Bootstrap](https://github.com/twbs/bootstrap)
+* [amazeui](https://github.com/allmobilize/amazeui/)
+
 
 #参与开发
 我们欢迎您在SmartWiki项目的GitHub上报告issue或者pull request。
