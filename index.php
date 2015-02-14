@@ -13,7 +13,39 @@ $pages=$_GET['page'];
 if(!file_exists("file/".$pages.".md")){
 die("404 Not Found");
 }else{
- $text = file_get_contents("file/".$pages.".md");
+ //$text = file_get_contents("file/".$pages.".md");
+$handle = @fopen("file/".$pages.".md", "r");
+if($handle){
+while(!feof($handle)){
+    $texttemp = fgets($handle, 4096);
+  if(substr($texttemp, 0,3)=="***"){
+   break;
+  }else{
+   $temparray[]=$texttemp;
+  }
+}
+  $heading="";
+  $subheading="";
+if(count($temparray)!=0){
+  foreach ($temparray as $key => $val)
+  {
+    if($val!=""&&substr($val, 0,1)=="#"){
+      $heading=trim(substr($val, 1));
+    }
+   if($val!=""&&substr($val, 0,1)!="#"){
+     $subheading=$subheading.trim($val);
+   }
+  }
+}else{
+  $heading="无标题";
+  $subheading="";
+}
+$text="";
+    while (!feof($handle)) {
+        $text = $text.fgets($handle, 4096);
+    }
+    fclose($handle);
+}
  $html = MarkdownExtra::defaultTransform($text);
      }
 ?>
@@ -25,7 +57,7 @@ die("404 Not Found");
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title><?php echo $filesetting[$pages]['heading'] ?> - <?php echo $Gsetting["title"]?></title>
+    <title><?php echo $filesetting[$pages]?> - <?php echo $Gsetting["title"]?></title>
 
     <!-- Bootstrap core CSS -->
     <link href="http://cdn.bootcss.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
@@ -59,13 +91,10 @@ die("404 Not Found");
             <?PHP
             foreach ($filesetting as $key => $val)
             {
-             if (is_array ($val))
-             {
               if($key==$pages){
-              echo '<li class= "active"><a href="?page='.$key.'">'.$val["heading"].'</a></li>';
+              echo '<li class= "active"><a href="?page='.$key.'">'.$val.'</a></li>';
               }else{
-              echo '<li><a href="?page='.$key.'">'.$val["heading"].'</a></li>';
-             }
+              echo '<li><a href="?page='.$key.'">'.$val.'</a></li>';
              }
             }
             ?>
@@ -76,9 +105,9 @@ die("404 Not Found");
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <h1><?PHP echo $filesetting[$pages]['heading'];?></h1>
+        <h1><?PHP echo $heading;?></h1>
         <br>
-        <p><?PHP echo $filesetting[$pages]['subheading'];?></p>
+        <p><?PHP echo $subheading;?></p>
       </div>
     </div>
 

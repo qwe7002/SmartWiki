@@ -2,13 +2,17 @@
 **smartwiki** 是一个简单的，基于文件的wiki 管理系统。wiki 采用 markdown 作为编辑语言。与同类产品相比，有着更高的性能。仅由12个文件组成。只要您有300k 的PHP空间就可以搭建一个属于您的wiki系统。
 #注意
 以下信息需要根据需要修改。
-* 您可以根据您的需要修改conf.php 中的<code>$filesetting</code>数组，该数组为一个二维数组，是所有 md 文件的索引数组。例如我们要表示 file/index.md,只要按如下方法编辑即可
+* 您可以根据您的需要修改conf.php 中的<code>$filesetting</code>数组，该数组将为程序提供导航信息
 
->$filesetting=array ("index"=>array("heading"=>"首页",
-                       			   "subheading"=>"smartwiki 一个简单，文档化管理的wiki 系统")
-                       			   );
+>$filesetting=array ("index"=>"首页");
 
-其中的 index 为 md 文件的文件名。您必须编写一个index.md 文件作为网站的首页。heading 和 subheading 是该页的标题和副标题，可以随意填写。
+其中的 index 为 md 文件的文件名。您必须编写一个index.md 文件作为网站的首页。在 md 中，您可以在首个分割线之前定义本页的标题与副标题。例如：
+>#标题
+>
+>副标题
+>
+>***
+建议将以上代码写在文件的顶部，以便能够正确的解析到这些信息。
 * 您可以通过修改 conf.php 文件的<code>$Gsetting</code>来指定该网站的名称以及页脚信息
 
 #感谢
