@@ -16,30 +16,25 @@ die("404 Not Found");
  //$text = file_get_contents("file/".$pages.".md");
 $handle = @fopen("file/".$pages.".md", "r");
 if($handle){
+  $havehr=0;
 while(!feof($handle)){
     $texttemp = fgets($handle, 4096);
   if(substr($texttemp, 0,3)=="***"){
+    $havehr=1;
    break;
   }else{
    $temparray[]=$texttemp;
   }
 }
   $heading="";
-  $subheading="";
-if(count($temparray)!=0){
+  $temptext="";
+if($havehr==1){
   foreach ($temparray as $key => $val)
   {
-    if($val!=""&&substr($val, 0,1)=="#"){
-      $heading=trim(substr($val, 1));
-    }
-   if($val!=""&&substr($val, 0,1)!="#"){
-     $subheading=$subheading.trim($val);
-   }
+$temptext=$temptext."\n".$val;
   }
-}else{
-  $heading="无标题";
-  $subheading="";
-}
+ $heading = MarkdownExtra::defaultTransform($temptext);
+}else{$heading="无标题";}
 $text="";
     while (!feof($handle)) {
         $text = $text.fgets($handle, 4096);
@@ -105,9 +100,7 @@ $text="";
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <h1><?PHP echo $heading;?></h1>
-        <br>
-        <p><?PHP echo $subheading;?></p>
+        <?PHP echo $heading;?>
       </div>
     </div>
 
