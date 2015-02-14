@@ -7,12 +7,13 @@
 >$filesetting=array ("index"=>"首页");
 
 其中的 index 为 md 文件的文件名。您必须编写一个index.md 文件作为网站的首页。在 md 中，您可以在首个分割线之前定义本页的标题与副标题。例如：
-<code>#标题
 
-副标题
+<pre><code>#标题</code>
 
-***
-</code>
+<code>副标题</code>
+
+<code>***</code></pre>
+
 建议将以上代码写在文件的顶部，以便能够正确的解析到这些信息。
 * 您可以通过修改 conf.php 文件的<code>$Gsetting</code>来指定该网站的名称以及页脚信息
 
@@ -21,6 +22,17 @@
 
 * [php-markdown](https://github.com/michelf/php-markdown)
 * [Bootstrap](https://github.com/twbs/bootstrap)
+
+#参与开发
+我们欢迎您在SmartWiki项目的GitHub上报告issue或者pull request。
+
+如果您还不熟悉GitHub的Fork and Pull开发模式，您可以阅读GitHub的文档（https://help.github.com/articles/using-pull-requests）获得更多的信息。
+
+如果你想在这里显示您的副本，请联系 Email：qwe7002@hotmail.com
+
+#演示
+
+* [smartwiki](http://smartwiki.qwe7002.com)
 
 #版权
 采用MIT协议分发
