@@ -52,7 +52,7 @@ $text="";
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title><?php echo $filesetting[$pages]?> - <?php echo $Gsetting["title"]?></title>
+    <title><?php echo $filesetting[$pages]?> - <?php echo $Gsetting["title"]?>  - Powered by SmartWiki</title>
 
     <!-- Bootstrap core CSS -->
     <link href="http://cdn.bootcss.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
