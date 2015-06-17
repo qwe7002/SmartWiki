@@ -1,0 +1,10 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !^/css
+RewriteCond %{REQUEST_URI} !^/js
+RewriteCond %{REQUEST_URI} !^.*(\.css|\.js|\.gif|\.png|\.jpg|\.jpeg|\.xml)
+RewriteRule /(.*)$ /index.php?page=$1 [L]
+RewriteRule /$ /index.php [L]
+</IfModule>
