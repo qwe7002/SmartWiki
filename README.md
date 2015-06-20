@@ -3,7 +3,7 @@
 
 ## 注意
 以下信息需要根据需要修改。
-* 您需要更改 config.php 中的 $Config 数组，该数组的 Title 为网站标题，FooterInfo 为页脚信息。我们希望您能保留'Powered by SmartWiki.'字样以证明您在自豪的使用 Smartwiki 建立网站。
+* 您需要更改 config.php 中的 $Config 数组，该数组的 Title 为网站标题，FooterInfo 为页脚信息。我们希望您能保留 Powered by SmartWiki. 字样以证明您在自豪的使用 Smartwiki 建立网站。
 
 * 您可以根据您的需要修改 config.php 中的 `$Pages` 数组，该数组将为程序提供导航信息
 
