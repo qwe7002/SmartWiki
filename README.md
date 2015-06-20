@@ -1,8 +1,9 @@
 ## 简介
-**SmartWiki** 是一个简单的，基于文件的 CMS 系统。SmartWiki 采用 Markdown 作为编辑语言，无需任何数据库。与同类产品相比，有着更高的性能。只要您拥有1MB 的PHP虚拟主机空间就可以搭建一个 CMS 系统。(本系统运行于 Raspberry Pi B+上)
+**SmartWiki** 是一个简单的，基于文件的 CMS 系统。SmartWiki 采用 Markdown 作为编辑语言，无需任何数据库。与同类产品相比，有着更高的性能。只要您拥有1MB 的PHP虚拟主机空间就可以搭建一个 CMS 系统。
 
 ## 注意
 以下信息需要根据需要修改。
+
 * 您需要更改 config.php 中的 $Config 数组，该数组的 Title 为网站标题，FooterInfo 为页脚信息。我们希望您能保留 Powered by SmartWiki. 字样以证明您在自豪的使用 Smartwiki 建立网站。
 
 * 您可以根据您的需要修改 config.php 中的 `$Pages` 数组，该数组将为程序提供导航信息
