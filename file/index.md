@@ -7,14 +7,16 @@ SmartWiki 是一个简单的，基于文件的 Wiki 管理系统。
 ## 注意
 以下信息需要根据需要修改。
 
-* 您需要更改 config 文件夹下的 `config.json` 文件，该文件为本程序的配置文件。 Title 为网站标题，FooterInfo 为页脚信息。我们希望您能保留 Powered by SmartWiki. 字样以证明您在自豪的使用 Smartwiki 建立网站。
+* 您需要更改 `config` 文件夹下的 `config.json` 文件，该文件为本程序的配置文件。 `Title` 为网站标题，`FooterInfo` 为页脚信息。我们希望您能保留 `Powered by SmartWiki.` 字样以证明您在自豪的使用 Smartwiki 建立网站。
 
-```{
+```
+{
  "Title":"SmartWiki",
  "FooterInfo":"&copy; Company 2015"
-}```
+}
+```
 
-* 您可以根据您的需要修改 config 文件夹下的 `$Pages` 数组，该数组将为程序提供导航信息。其中的 index 为 Markdown 文档文件的文件名。您必须编写一个 `index.md` 文件作为本网站的首页。
+* 您可以根据您的需要修改 `config` 文件夹下的 `pages.json` 文件，该数组将为程序提供导航信息。其中的 `index` 为 Markdown 文档文件的文件名。您必须编写一个 `index.md` 文件作为本网站的首页。
 
 您可以选择使用一个数组来表示一个分类下的子分类。例如：
 
@@ -31,7 +33,7 @@ SmartWiki 是一个简单的，基于文件的 Wiki 管理系统。
 
 其中的 `example` 代表这个分类的类名称，所有该分类的Markdown文件需要以 `分类名称(example)/子分类名称(page1).md`的方式来存放。子分类数组中必须包含一个名为 `Tittle` 的键来描述这个分类所要显示的名称。
 
-* 在 md 中，您可以在首个分割线之前定义本页的标题与副标题。例如：
+* 在 md 文档中，您可以在首个分割线之前定义本页的标题与副标题。例如：
 
 ```
 #标题
@@ -39,9 +41,7 @@ SmartWiki 是一个简单的，基于文件的 Wiki 管理系统。
 ***
 ```
 
-建议将以上代码写在文件的顶部，以便能够正确的解析到这些信息。
-
-* 您可以通过修改 config.php 文件的 `$Config` 来指定该网站的名称以及页脚信息
+您需要将以上代码写在文件的顶部，以便能够正确的解析到这些信息。
 
 ## 感谢
 感谢优秀的开源 Markdown 库 `php-markdown` 以及优秀的前端框架 `Bootstrap`.
