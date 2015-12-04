@@ -4,9 +4,9 @@ define("REWRITE", true);
 //载入配置文件
 $Config =json_decode(file_get_contents("./config/config.json"),true);
 $Pages = json_decode(file_get_contents("./config/pages.json"),true);
+//载入Markdown解析库
 include './Library/Markdown/MarkdownExtra.inc.php';
 use \Michelf\MarkdownExtra;
-
 $Page = array();
 $Page['Name'] = isset($_GET['page']) ? stripslashes($_GET['page']) : 'index';
 $Page['List'] = explode('/', $Page['Name']);
