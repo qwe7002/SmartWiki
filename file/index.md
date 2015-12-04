@@ -2,31 +2,34 @@
 SmartWiki 是一个简单的，基于文件的 Wiki 管理系统。
 ***
 ## 简介
-**SmartWiki** 是一个简单的，基于文件的 CMS 系统。SmartWiki 采用 Markdown 作为编辑语言，无需任何数据库。与同类产品相比，有着更高的性能。只要您拥有1MB 的PHP虚拟主机空间就可以搭建一个 CMS 系统。(本系统运行于 Raspberry Pi B+上)
+**SmartWiki** 是一个简单的，基于文件的 CMS 系统。SmartWiki 采用 Markdown 作为编辑语言，无需任何数据库。与同类产品相比，有着更高的性能。只要您拥有1MB 的PHP虚拟主机空间就可以搭建一个 CMS 系统。
 
 ## 注意
 以下信息需要根据需要修改。
 
-* 您需要更改 config.php 中的 $Config 数组，该数组的 Title 为网站标题，FooterInfo 为页脚信息。我们希望您能保留 Powered by SmartWiki. 字样以证明您在自豪的使用 Smartwiki 建立网站。
+* 您需要更改 config 文件夹下的 `config.json` 文件，该文件为本程序的配置文件。 Title 为网站标题，FooterInfo 为页脚信息。我们希望您能保留 Powered by SmartWiki. 字样以证明您在自豪的使用 Smartwiki 建立网站。
 
-* 您可以根据您的需要修改 config.php 中的 `$Pages` 数组，该数组将为程序提供导航信息
+```{
+ "Title":"SmartWiki",
+ "FooterInfo":"&copy; Company 2015"
+}```
 
-`$Pages = array ('index' => '首页');`
-
-其中的 index 为 md 文件的文件名。您必须编写一个 `index.md` 文件作为网站的首页。
+* 您可以根据您的需要修改 config 文件夹下的 `$Pages` 数组，该数组将为程序提供导航信息。其中的 index 为 Markdown 文档文件的文件名。您必须编写一个 `index.md` 文件作为本网站的首页。
 
 您可以选择使用一个数组来表示一个分类下的子分类。例如：
 
 ```
-$Pages = array('index' => '首页',
-                'about' => array(
-                  'Title' => '关于',
-                  'test'  => '测试'
-                )
-              );
+{
+	"index":"主页",
+	"example":
+	{
+		"Title":"example",
+		"the one":"page1"
+	}
+}
 ```
 
-其中的 `about` 代表这个分类的名称，所有该分类的md文件需要以 `分类名称（例如 about）/子分类名称（例如 test）.md`的方式来存放。子分类数组中必须包含一个名为标题的键来描述这个分类所要显示的名称。
+其中的 `example` 代表这个分类的类名称，所有该分类的Markdown文件需要以 `分类名称(example)/子分类名称(page1).md`的方式来存放。子分类数组中必须包含一个名为 `Tittle` 的键来描述这个分类所要显示的名称。
 
 * 在 md 中，您可以在首个分割线之前定义本页的标题与副标题。例如：
 
@@ -41,7 +44,7 @@ $Pages = array('index' => '首页',
 * 您可以通过修改 config.php 文件的 `$Config` 来指定该网站的名称以及页脚信息
 
 ## 感谢
-感谢优秀的开源 Markdown 库 `php-markdown` 以及优秀的前端框架 `Bootstrap` 和 `AmazeUI`.
+感谢优秀的开源 Markdown 库 `php-markdown` 以及优秀的前端框架 `Bootstrap`.
 
 * [php-markdown](https://github.com/michelf/php-markdown)
 * [Bootstrap](https://github.com/twbs/bootstrap)
