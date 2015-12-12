@@ -1,6 +1,9 @@
 <?php
-
-include './config.php';
+//设定是否重写
+define("REWRITE", true);
+//载入配置文件
+$Config =json_decode(file_get_contents("./config/config.json"),true);
+$Pages = json_decode(file_get_contents("./config/pages.json"),true);
 include './Library/Markdown/MarkdownExtra.inc.php';
 use \Michelf\MarkdownExtra;
 
@@ -136,7 +139,7 @@ $Page['Output'] = MarkdownExtra::defaultTransform($Page['Content']);
     </section>
   </footer>
 
-  <script src="/Static/JavaScript/jquery.min.js"></script>
-  <script src="/Static/JavaScript/bootstrap.min.js"></script>  
+  <script src="./Static/JavaScript/jquery.min.js"></script>
+  <script src="./Static/JavaScript/bootstrap.min.js"></script>  
 </body>
 </html>
